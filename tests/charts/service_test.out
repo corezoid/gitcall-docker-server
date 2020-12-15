@@ -1,0 +1,22 @@
+# Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: RELEASE-NAME-gitcall-docker-server-service
+  labels:
+    release: "RELEASE-NAME"
+    app: "gitcall"
+    tier: "docker_server"
+spec:
+  selector:
+    release: "RELEASE-NAME"
+    app: "gitcall"
+    tier: "docker_server"
+    http: "true"
+  ports:
+  - port: 2375
+    protocol: TCP
+    targetPort: 2375
+  type: ClusterIP
+---
+# Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/deployment.yaml

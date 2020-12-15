@@ -1,0 +1,17 @@
+# Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/autoscale.yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: RELEASE-NAME-gitcall-docker-server-autoscale
+  labels:
+    release: "RELEASE-NAME"
+    app: "gitcall"
+    tier: "docker_server"
+spec:
+  minReplicas: 1
+  maxReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: RELEASE-NAME-gitcall-docker-server-deployment
+  targetCPUUtilizationPercentage: 80

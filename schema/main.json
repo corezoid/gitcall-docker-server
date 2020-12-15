@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.corezoid.com/gitcall/docker-server/main.json",
+  "type": "object",
+  "required": ["gitcall_docker_server"],
+  "properties": {
+    "gitcall_docker_server": {
+      "type": "object",
+      "required": ["config"],
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "insecure_registries": {
+              "type": "array",
+              "default": [],
+              "items": { "type": "string", "minLength": 1, "maxLength": 1000 }
+            },
+            "debug": { "type": "boolean", "default": false},
+            "metrics_addr" : {"type": "string", "minLength": 0, "maxLength": 1000, "default": "" },
+            "experimental": { "type": "boolean", "default": false}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: RELEASE-NAME-gitcall-docker-server-config
+  labels:
+    release: "RELEASE-NAME"
+    app: "gitcall"
+    tier: "docker_server"
+data:
+  daemon.json: |
+    {
+      "registry-mirrors": [],
+      "insecure-registries": [
+      ],
+      "debug": false,
+      "experimental": false
+    }
+---
+# Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/service.yaml

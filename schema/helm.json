@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.corezoid.com/gitcall/docker-server/helm.json",
+  "type": "object",
+  "required": ["gitcall_docker_server"],
+  "properties": {
+    "gitcall_docker_server": {
+      "type": "object",
+      "required": ["helm"],
+      "properties": {
+        "helm": {
+          "type": "object",
+          "required": [
+            "min_replicas",
+            "max_replicas",
+            "image_pull_policy",
+            "exporter"
+          ],
+          "properties": {
+            "min_replicas": { "type": "number", "minimum": 1, "maximum": 1000, "default": 1 },
+            "max_replicas": { "type": "number", "minimum": 1, "maximum": 1000, "default": 1 },
+            "image_pull_policy": { "type": "string", "enum": ["Always"], "default": "Always"},
+            "exporter": {
+              "type": "object",
+              "properties": {
+                "enabled": { "type": "boolean", "default": true }
+              }
+            },
+            "resources": { "$ref": "https://schema.corezoid.com/packages/kube/container_resources_v1.json" }
+          }
+        }
+      }
+    }
+  }
+}

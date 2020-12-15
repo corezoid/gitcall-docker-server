@@ -1,0 +1,49 @@
+gitcall_docker_server:
+    # [REQUIRED]: object.
+    config:
+        debug: false
+        experimental: false
+        insecure_registries: []
+        metrics_addr: ''
+    # [REQUIRED]: object.
+    helm:
+        # [REQUIRED]: object.
+        exporter:
+            enabled: true
+        # [REQUIRED]: string.
+        image_pull_policy: 'Always'
+        # [REQUIRED]: number.
+        max_replicas: 1
+        # [REQUIRED]: number.
+        min_replicas: 1
+        resources:
+            # [REQUIRED]: object.
+            limits:
+                # [REQUIRED]: string.
+                cpu: '500m'
+                # [REQUIRED]: string.
+                memory: '500Mi'
+            # [REQUIRED]: object.
+            requests:
+                # [REQUIRED]: string.
+                cpu: '500m'
+                # [REQUIRED]: string.
+                memory: '500Mi'
+release:
+    name: 'gitcall_docker_server_release'
+    helm:
+        enabled: true
+        chart:
+            version: '0.1.2'
+            description: 'aDescription'
+        context: ''
+        namespace: ''
+        release: ''
+        deploy: ['gitcall_docker_server']
+    require:
+        gitcall_docker_server: 'aVersion'
+    repositories:
+        gitcall_docker_server:
+            source: 'local'
+            local:
+                path: '../'
