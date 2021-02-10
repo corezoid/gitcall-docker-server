@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: 6ccd4210b79df21a8d6bb6daac87738544fbf084585c46f2b7356acf0c44d409
+        checksum/config: 806546c0429871fa2fae151ac6ccec87a53a1a4e169a8582e064f64bc3a8a4d2
         #prometheus.io/path: /metrics
         #prometheus.io/port: "9323"
         prometheus.io/scrape: "true"
@@ -33,7 +33,7 @@ spec:
       containers:
         - name: main
           imagePullPolicy: "Always"
-          image: docker:18.09.9-dind
+          image: docker-hub.middleware.biz/hub.docker.com/library/docker:18.09.9-dind
           ports:
             - name: container-port
               containerPort: 2375

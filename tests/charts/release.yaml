@@ -11,6 +11,7 @@ gitcall_docker_server:
             # [REQUIRED]: object.
             enabled: true
         image_pull_policy: 'Always'
+        service_headless: true
         # [REQUIRED]: string.
         max_replicas: 1
         # [REQUIRED]: number.

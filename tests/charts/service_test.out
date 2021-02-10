@@ -8,6 +8,7 @@ metadata:
     app: "gitcall"
     tier: "docker_server"
 spec:
+  clusterIP: "None"
   selector:
     release: "RELEASE-NAME"
     app: "gitcall"
@@ -15,8 +16,13 @@ spec:
     http: "true"
   ports:
   - port: 2375
+    name: api
     protocol: TCP
     targetPort: 2375
+#  - port: 2376
+#    name: apis
+#    protocol: TCP
+#    targetPort: 2376
   type: ClusterIP
 ---
 # Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/deployment.yaml

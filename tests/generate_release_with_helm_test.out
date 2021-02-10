@@ -29,6 +29,7 @@ gitcall_docker_server:
                 cpu: '500m'
                 # [REQUIRED]: string.
                 memory: '500Mi'
+        service_headless: true
 release:
     name: 'gitcall_docker_server_release'
     helm:

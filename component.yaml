@@ -1,7 +1,7 @@
 component_name: gitcall_docker_server
 
 include:
-  kube: 7d2612ac # 1.0-dev
+  kube: d2721333 # main
 
 helm:
   enabled: true
@@ -12,5 +12,5 @@ helm:
     description: "The component for Docker Engine server"
 
 config_file: daemon.json
-image: "docker"
+image: "docker-hub.middleware.biz/hub.docker.com/library/docker"
 image_version: "18.09.9-dind"

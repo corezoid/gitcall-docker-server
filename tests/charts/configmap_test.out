@@ -10,11 +10,10 @@ metadata:
 data:
   daemon.json: |
     {
-      "registry-mirrors": [],
-      "insecure-registries": [
-      ],
       "debug": false,
-      "experimental": false
+      "experimental": false,
+      "insecure_registries": [],
+      "metrics_addr": ""
     }
 ---
 # Source: gitcall_docker_server_release/charts/gitcall_docker_server/templates/service.yaml
