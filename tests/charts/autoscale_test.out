@@ -14,4 +14,4 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: RELEASE-NAME-gitcall-docker-server-deployment
-  targetCPUUtilizationPercentage: 80
+  targetCPUUtilizationPercentage: 50
